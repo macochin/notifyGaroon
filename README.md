@@ -1,5 +1,5 @@
 # notifyGaroon(Google Apps Script(GAS)用)
-## 概要
+### 概要
 - 1時間おきにGaroonの新着通知を取得し、LINE Notify APIで自分宛に新着通知タイトルとURLを送信する
 
 ### LINE Notifyのトークン発行
