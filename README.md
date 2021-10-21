@@ -14,7 +14,7 @@
       - LINE_NOTIFY_TOKEN
         - LINE Notifyのアクセストークン
       - SUB_DOMAIN
-        - Garoonのドメイン
+        - Garoonのサブドメイン(https://(サブドメイン名).cybozu.com)
       - USER_ID
         - GaroonのログインID
       - PASSWORD
