@@ -5,10 +5,10 @@ var NOTIFY_API = "https://notify-api.line.me/api/notify";
 var SUB_DOMAIN = PropertiesService.getScriptProperties().getProperty('SUB_DOMAIN');
 var USER_ID = PropertiesService.getScriptProperties().getProperty('USER_ID');
 var PASSWORD = PropertiesService.getScriptProperties().getProperty('PASSWORD');
-var garoon_url = "https://" + SUB_DOMAIN + ".cybozu.com/g/api/v1/notification/items";
-var auth = Utilities.base64Encode(USER_ID + ":" + PASSWORD, Utilities.Charset.UTF_8)
 
 function myFunction() {
+  var garoon_url = "https://" + SUB_DOMAIN + ".cybozu.com/g/api/v1/notification/items";
+  var auth = Utilities.base64Encode(USER_ID + ":" + PASSWORD, Utilities.Charset.UTF_8)
 
   var headers = {
     'X-Cybozu-Authorization': auth
@@ -32,9 +32,10 @@ function myFunction() {
     var createTime = Number(json.items[jj].createdAt.slice(11, 13)) + 9;
 
     // "isRead": false
+    // 1時間以内の新着通知を対象
     if (json.items[jj].isRead == false && createDate == today && (hour - createTime <= 1)) {
-      // "url": "https://{subdomain}.cybozu.com/g/space/application/discussion/index.csp?spid=1",
       // "title": "Developmennt schedule discussion",
+      // "url": "https://{subdomain}.cybozu.com/g/space/application/discussion/index.csp?spid=1",
       bodyItem.push(json.items[jj].title);
       bodyItem.push(json.items[jj].url);
     }
